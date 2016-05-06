@@ -40,12 +40,12 @@ public class DataUtils {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         if (calendar.get(Calendar.YEAR) == 2014) {
-            int days = calendar.get(Calendar.DAY_OF_YEAR) - 283;
+            int days = 365-calendar.get(Calendar.DAY_OF_YEAR) +361;
             int lable = days / 14 + 1;
             return lable;
         } else {
             if (calendar.get(Calendar.YEAR) == 2015) {
-                int days = calendar.get(Calendar.DAY_OF_YEAR) + 82;
+                int days = 361-calendar.get(Calendar.DAY_OF_YEAR);
                 int lable = days / 14 + 1;
                 return lable;
             } else {

@@ -47,8 +47,8 @@ public class SumData {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         Configuration conf = new Configuration();
-        Path input1 = new Path("hdfs://master:8020/test/tianchidata/output/");
-        Path output1 = new Path("hdfs://master:8020/test/tianchidata/sumoutput/");
+        Path input1 = new Path("hdfs://bigdata-server:8020/test/tianchidata/output/");
+        Path output1 = new Path("hdfs://bigdata-server:8020/test/tianchidata/sumoutput/");
         FileSystem fs = output1.getFileSystem(conf);
         if (fs.exists(output1)) {
             fs.delete(output1);

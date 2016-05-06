@@ -32,9 +32,11 @@ public class ExtractData  {
             if (data.getItemID()!=null&&
                     data.getDate()!=null&&
                     data.getWarehouseCode()!=null
-                    &&data.getSaleNumber()!=null){
+                   ){
                 keyout.set(data.getItemID()+"\t"+data.getWarehouseCode());
-                valueout.set(data.getDate()+"\t"+data.getSaleNumber());
+                Integer salenumbers=data.getSaleNumber();
+                String salenumberstring =String.valueOf(salenumbers);
+                valueout.set(data.getDate()+"\t"+salenumberstring);
 
                 context.write(keyout,valueout);
             }
@@ -71,8 +73,8 @@ public class ExtractData  {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         Configuration conf = new Configuration();
-        Path input = new Path("hdfs://master:8020/test/tianchidata/input/");
-        Path output = new Path("hdfs://master:8020/test/tianchidata/output");
+        Path input = new Path("hdfs://bigdata-server:8020/test/tianchidata/input/");
+        Path output = new Path("hdfs://bigdata-server/test/tianchidata/output");
         FileSystem fs = output.getFileSystem(conf);
         if (fs.exists(output)) {
             fs.delete(output);

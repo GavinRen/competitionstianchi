@@ -34,7 +34,7 @@ public class PredictedData {
                 if (date_str != null) {
                     datetable = Integer.parseInt(date_str);
 
-                    if (29 < datetable && datetable <= 32) {
+                    if (0 < datetable && datetable <= 3) {
                         keyout.set(rec[0] +"\t" + rec[1]);
                         int sum = Integer.parseInt(rec[3].trim());
                         valueout.set(sum);
@@ -65,8 +65,8 @@ public class PredictedData {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         Configuration conf = new Configuration();
-        Path input2 = new Path("hdfs://master:8020/test/tianchidata/sumoutput/");
-        Path output2 = new Path("hdfs://master:8020/test/tianchidata/predictedoutput/");
+        Path input2 = new Path("hdfs://bigdata-server:8020/test/tianchidata/sumoutput/");
+        Path output2 = new Path("hdfs://bigdata-server:8020/test/tianchidata/1predictedoutput/");
         FileSystem fs = output2.getFileSystem(conf);
         if (fs.exists(output2)) {
             fs.delete(output2);

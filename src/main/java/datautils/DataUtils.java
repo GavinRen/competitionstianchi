@@ -64,8 +64,12 @@ public class DataUtils {
         return itemID;
     }
 
-    public String getSaleNumber() {
-        return saleNumber;
+    public Integer getSaleNumber() {
+        try {
+            return Integer.parseInt(saleNumber);
+        }catch (NumberFormatException e){
+            return 0;
+        }
     }
 
     public String getWarehouseCode() {

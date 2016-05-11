@@ -44,8 +44,8 @@ public class CountID {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         Configuration conf = new Configuration();
-        Path input = new Path("bigdata-server://master:8020/test/tianchidata/input/");
-        Path output = new Path("bigdata-server://master:8020/test/tianchidata/countId");
+        Path input = new Path("hdfs://bigdata-server:8020/test/tianchidata/input/");
+        Path output = new Path("hdfs://bigdata-server:8020/test/tianchidata/countId");
         FileSystem fs = output.getFileSystem(conf);
         if (fs.exists(output)) {
             fs.delete(output);
